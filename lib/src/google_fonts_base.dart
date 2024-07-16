@@ -25,6 +25,9 @@ import 'google_fonts_descriptor.dart';
 import 'google_fonts_family_with_variant.dart';
 import 'google_fonts_variant.dart';
 
+Map<String, Map<GoogleFontsVariant, GoogleFontsFile>> googleFontVariantKeys =
+    {};
+
 /// Set of fonts that are loading or loaded.
 ///
 /// Used to determine whether to load a font or not.
@@ -94,6 +97,8 @@ TextStyle googleFontsTextStyle({
     decorationStyle: decorationStyle,
     decorationThickness: decorationThickness,
   );
+
+  googleFontVariantKeys[fontFamily] = fonts;
 
   final variant = GoogleFontsVariant(
     fontWeight: textStyle.fontWeight ?? FontWeight.w400,
